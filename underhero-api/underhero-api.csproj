@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62BEAA14-F01D-47FB-889F-94FB92CECA3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>underhero_api</RootNamespace>
+    <AssemblyName>underhero_api</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\Vanilla\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod, Version=20.2.1.1, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\MonoMod\MonoMod.exe</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.BaseLoader, Version=18.6.0.37004, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\MonoMod\MonoMod.BaseLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.RuntimeDetour, Version=20.2.1.1, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\MonoMod\MonoMod.RuntimeDetour.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.RuntimeDetour.HookGen, Version=20.2.1.1, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\MonoMod\MonoMod.RuntimeDetour.HookGen.exe</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.Utils, Version=20.2.1.1, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\MonoMod\MonoMod.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\Vanilla\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\Vanilla\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet, Version=4.3.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\MonoMod\YamlDotNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Logger.cs" />
+    <Compile Include="Mod.cs" />
+    <Compile Include="ModLoader.cs" />
+    <Compile Include="Patches\InitMod.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <!--
+  <ItemGroup>
+    <PackageReference Include="MonoMod" Version="20.2.1.1">
+      <IncludeAssets>all</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MonoMod.RuntimeDetour" Version="*">
+      <IncludeAssets>all</IncludeAssets>
+    </PackageReference>
+
+    <PackageReference Include="MonoMod.RuntimeDetour.HookGen" Version="*">
+      <IncludeAssets>all</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ILRepack" Version="2.0.18" />
+  </ItemGroup> -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+  <PropertyGroup Condition="$(OS) != WINDOWS_NT">
+    <PostBuildEvent>cp underhero_api.dll ../../../Vanilla/Assembly-CSharp.mm.dll
+      mono ../../../MonoMod/MonoMod.exe ../../../Vanilla/Assembly-CSharp.dll
+      mono ../../../MonoMod/MonoMod.RuntimeDetour.HookGen.exe --private ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll
+      mkdir -p ../../../Output/
+      mono ../../../ILRepack/ILRepack.exe ../../../Vanilla/MMHOOK_MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll /out:../../../Output/Assembly-CSharp.dll
+      rm ../../../Vanilla/Assembly-CSharp.mm.dll ../../../Vanilla/MMHOOK_MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll.mdb</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(OS) == WINDOWS_NT">
+    <PostBuildEvent>echo F | xcopy underhero_api.dll ..\..\..\Vanilla\Assembly-CSharp.mm.dll
+      ..\..\..\MonoMod\MonoMod.exe ..\..\..\Vanilla\Assembly-CSharp.dll
+      ..\..\..\MonoMod\MonoMod.RuntimeDetour.HookGen.exe --private ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll
+      if not exist ..\..\..\Output\ mkdir ..\..\..\Output\
+      ..\..\..\ILRepack\ILRepack.exe ..\..\..\Vanilla\MMHOOK_MONOMODDED_Assembly-CSharp.dll ..\..\..\Vanilla\MONOMODDED_Assembly-CSharp.dll /out:..\..\..\Output\Assembly-CSharp.dll
+      del ..\..\..\Vanilla\Assembly-CSharp.mm.dll
+      del ..\..\..\Vanilla\MMHOOK_MONOMODDED_Assembly-CSharp.dll
+      del ..\..\..\Vanilla\MONOMODDED_Assembly-CSharp.dll
+      del ..\..\..\Vanilla\MONOMODDED_Assembly-CSharp.dll.mdb</PostBuildEvent>
+  </PropertyGroup>
+</Project>
