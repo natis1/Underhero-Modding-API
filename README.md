@@ -21,13 +21,14 @@ A binary version of this API can be downloaded HERE (TBD)
 
 ### Linux:
 
-3. Install msbuild from your repository
-4. Run `msbuild underhero-api.sln`
+3. Install msbuild (or mono if msbuild isn't there) from your repository
+4. Run `msbuild underhero-api.sln` or `xbuild underhero-api.sln`
 
 ---
 
 5. Copy the Assembly-CSharp.dll file from the Output folder into the Underhero_Data/Managed folder, overwriting the existing Assembly-CSharp.dll file
-6. Run the game, if you see on the main menu the modding api in the top right corner, you successfully built it.
+6. Make a "Mods" folder where your game is installed, you can drop any mods you want to load in here.
+7. Run the game, if you see on the main menu the modding api in the top right corner, you successfully built it.
 
 # Getting Started on Modding
 
