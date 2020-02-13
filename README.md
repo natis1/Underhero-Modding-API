@@ -28,3 +28,7 @@ A binary version of this API can be downloaded HERE (TBD)
 
 5. Copy the Assembly-CSharp.dll file from the Output folder into the Underhero_Data/Managed folder, overwriting the existing Assembly-CSharp.dll file
 6. Run the game, if you see on the main menu the modding api in the top right corner, you successfully built it.
+
+# Getting Started on Modding
+
+Check out the examples folder for some simple example mods that show you how to get started!
