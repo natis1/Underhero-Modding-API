@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using MonoMod.Utils;
+using UnityEngine;
+using Object = System.Object;
 
 namespace Modding
 {
@@ -11,6 +13,8 @@ namespace Modding
     {
         private static bool loaded;
         private static List<Mod> loadedMods;
+
+        private static ModVersionDraw _draw;
 
         public const string MODS_FOLDER = "Mods";
         public const string RELINK_FOLDER = ".relinked";
@@ -33,6 +37,8 @@ namespace Modding
             relinkInfo.Attributes |= FileAttributes.Hidden;
 
             loadedMods = new List<Mod>();
+
+            string ModText = "Underhero Modding API - Version " + ModHooks.API_VERSION;
 
             //Init mods from dlls. GetFiles is case-insensitive
             foreach (string name in Directory.GetFiles(MODS_FOLDER, "*.dll"))
@@ -89,6 +95,7 @@ namespace Modding
                 {
                     mod.Init();
                     Logger.Log($"[API] Mod \"{name}\" initialized");
+                    ModText += "\n" + mod.GetModName() + " - Version: " + mod.GetVersion();
                 }
                 catch (Exception e)
                 {
@@ -98,8 +105,14 @@ namespace Modding
             }
 
             loadedMods.RemoveAll(mod => failedInit.Contains(mod));
-
+            
+            GameObject gameObject = new GameObject();
+            _draw = gameObject.AddComponent<ModVersionDraw>();
+            UnityEngine.Object.DontDestroyOnLoad(gameObject);
+            _draw.drawString = ModText;
+            
             loaded = true;
         }
+        
     }
 }
