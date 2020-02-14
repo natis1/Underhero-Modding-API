@@ -346,15 +346,15 @@
       mono ../../../MonoMod/MonoMod.exe ../../../Vanilla/Assembly-CSharp.dll
       mono ../../../MonoMod/MonoMod.RuntimeDetour.HookGen.exe --private ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll
       mkdir -p ../../../Output/
-      mono ../../../ILRepack/ILRepack.exe ../../../Vanilla/MMHOOK_MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll /out:../../../Output/Assembly-CSharp.dll
+      mono ../../../ILRepack/ILRepack.exe ../../../MonoMod/Mono.Cecil.dll ../../../MonoMod/MonoMod.RuntimeDetour.dll ../../../MonoMod/MonoMod.Utils.dll ../../../Vanilla/MMHOOK_MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll /out:../../../Output/Assembly-CSharp.dll
       rm ../../../Vanilla/Assembly-CSharp.mm.dll ../../../Vanilla/MMHOOK_MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll.mdb</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="$(OS) == WINDOWS_NT">
     <PostBuildEvent>echo F | xcopy underhero_api.dll ..\..\..\Vanilla\Assembly-CSharp.mm.dll
       ..\..\..\MonoMod\MonoMod.exe ..\..\..\Vanilla\Assembly-CSharp.dll
-      ..\..\..\MonoMod\MonoMod.RuntimeDetour.HookGen.exe --private ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll
+      ..\..\..\MonoMod\MonoMod.RuntimeDetour.HookGen.exe --private ..\..\..\Vanilla\MONOMODDED_Assembly-CSharp.dll
       if not exist ..\..\..\Output\ mkdir ..\..\..\Output\
-      ..\..\..\ILRepack\ILRepack.exe ..\..\..\Vanilla\MMHOOK_MONOMODDED_Assembly-CSharp.dll ..\..\..\Vanilla\MONOMODDED_Assembly-CSharp.dll /out:..\..\..\Output\Assembly-CSharp.dll
+      ..\..\..\ILRepack\ILRepack.exe ..\..\..\MonoMod\Mono.Cecil.dll ..\..\..\MonoMod\MonoMod.RuntimeDetour.dll ..\..\..\MonoMod\MonoMod.Utils.dll ..\..\..\Vanilla\MMHOOK_MONOMODDED_Assembly-CSharp.dll ..\..\..\Vanilla\MONOMODDED_Assembly-CSharp.dll /out:..\..\..\Output\Assembly-CSharp.dll
       del ..\..\..\Vanilla\Assembly-CSharp.mm.dll
       del ..\..\..\Vanilla\MMHOOK_MONOMODDED_Assembly-CSharp.dll
       del ..\..\..\Vanilla\MONOMODDED_Assembly-CSharp.dll

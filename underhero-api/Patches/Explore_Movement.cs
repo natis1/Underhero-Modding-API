@@ -7,6 +7,7 @@ namespace Modding.Patches
     {
         private static Explore_Movement _instance;
         
+        // ReSharper disable once UnusedMember.Global Used Implicitly
         public static Explore_Movement Instance
         {
             get

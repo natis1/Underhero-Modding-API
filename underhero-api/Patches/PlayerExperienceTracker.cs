@@ -11,6 +11,7 @@ namespace Modding.Patches
 
         private void orig_LevelControlFunction() {}
 
+        // ReSharper disable once UnusedMember.Local Used Implicitly
         private void LevelControlFunction()
         {
             if (CompareEXP != this.LevelEXP)
