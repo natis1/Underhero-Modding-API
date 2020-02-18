@@ -8,6 +8,22 @@ namespace Modding.Patches
     {
         [MonoModIgnore]
         private int CompareEXP;
+        
+        
+        private static PlayerExperienceTracker _instance;
+        
+        // ReSharper disable once UnusedMember.Global Used Implicitly
+        public static PlayerExperienceTracker Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = UnityEngine.Object.FindObjectOfType<PlayerExperienceTracker>();
+                }
+                return _instance;
+            }
+        }
 
         private void orig_LevelControlFunction() {}
 

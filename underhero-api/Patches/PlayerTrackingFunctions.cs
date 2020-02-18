@@ -17,5 +17,10 @@ namespace Modding.Patches
             NumberersSpawnerScr component = GameObject.FindWithTag("Item Database").GetComponent<NumberersSpawnerScr>();
             component.SpawnNumberersM(BaseObjt, Stringer, component.ExperienceColor, NumberersSpawnerScr.AdditActs.Exp);
         }
+
+        public static void MakeExpNumbersModded(string drawText)
+        {
+            MakeExpNumbersModded(GameObject.FindGameObjectWithTag("Player"), drawText);
+        }
     }
 }

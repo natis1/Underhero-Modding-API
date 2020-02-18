@@ -6,7 +6,7 @@ namespace Modding
     {
         private static ModHooks _instance;
 
-        public static readonly int API_VERSION = 1;
+        public static readonly int API_VERSION = 2;
         public static ModHooks Instance
         {
             get

@@ -1,4 +1,5 @@
 using MonoMod;
+using UnityEngine;
 
 namespace Modding.Patches
 {
@@ -19,6 +20,26 @@ namespace Modding.Patches
                 return _instance;
             }
         }
+        
+        // Bad:
+        // [MonoModPublic] private bool UseBeat;
 
+        // Good:
+        [MonoModIgnore] private bool UseBeat;
+        public bool _UseBeat
+        {
+            get { return UseBeat; }
+            set { UseBeat = value; }
+        }
+        
+        /*
+        [MonoModPublic] public PlayerInventory PInventory;
+        [MonoModPublic] public PlayerDialogHolder ElizabethTalks;
+        [MonoModPublic] public CapsuleCollider Coll;
+        [MonoModPublic] public Explore_Movement.Player_States PrevOverState;
+        [MonoModPublic] public Character_Follow CameraMan;
+        */
+        
+        
     }
 }
