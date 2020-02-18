@@ -8,6 +8,7 @@ namespace Modding
         internal const int DEFAULT_PRIORITY = 0;
 
         protected string _modName;
+        protected string _modVersion;
 
         public abstract void Init();
 
@@ -36,7 +37,14 @@ namespace Modding
             }
         }
 
-        public virtual string GetVersion() => "UNKNOWN";
+        public virtual string GetVersion()
+        {
+            if (_modVersion == null)
+            {
+                _modVersion = "UNKNOWN";
+            }
+            return _modVersion;
+        }
 
         public virtual int LoadPriority() => DEFAULT_PRIORITY;
 

@@ -8,6 +8,12 @@ namespace Modding.Patches
     {
         [MonoModIgnore]
         private int CompareEXP;
+
+        public int _CompareEXP
+        {
+            get { return CompareEXP; }
+            set { CompareEXP = value; }
+        }
         
         
         private static PlayerExperienceTracker _instance;

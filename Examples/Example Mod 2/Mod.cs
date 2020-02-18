@@ -46,6 +46,10 @@ namespace ExampleMod2
 			{
 				// If not then reward them with the xp they have earned.
 				orig(self);
+			} else if (self._CompareEXP != self.LevelEXP)
+			{
+				PlayerTrackingFunctions.MakeExpNumbersModded((self.LevelEXP - self._CompareEXP).ToString());
+				self._CompareEXP = self.LevelEXP;
 			}
 			
 		}

@@ -12,7 +12,6 @@ namespace Modding
             // will automatically proc the conditions needed for that hook to be run.
             PlayerExperienceTracker2.Instance.LevelEXP += xp;
             PlayerExperienceTracker2.Instance.TotalEXP += xp;
-            PlayerTrackingFunctions2.MakeExpNumbersModded(xp.ToString());
         }
     }
 }

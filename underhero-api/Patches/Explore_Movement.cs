@@ -31,15 +31,5 @@ namespace Modding.Patches
             get { return UseBeat; }
             set { UseBeat = value; }
         }
-        
-        /*
-        [MonoModPublic] public PlayerInventory PInventory;
-        [MonoModPublic] public PlayerDialogHolder ElizabethTalks;
-        [MonoModPublic] public CapsuleCollider Coll;
-        [MonoModPublic] public Explore_Movement.Player_States PrevOverState;
-        [MonoModPublic] public Character_Follow CameraMan;
-        */
-        
-        
     }
 }
