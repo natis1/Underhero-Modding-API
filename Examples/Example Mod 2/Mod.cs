@@ -46,10 +46,6 @@ namespace ExampleMod2
 			{
 				// If not then reward them with the xp they have earned.
 				orig(self);
-			} else if (self._CompareEXP != self.LevelEXP)
-			{
-				PlayerTrackingFunctions.MakeExpNumbersModded((self.LevelEXP - self._CompareEXP).ToString());
-				self._CompareEXP = self.LevelEXP;
 			}
 			
 		}
@@ -58,7 +54,7 @@ namespace ExampleMod2
 		// by any code in this file.
 
 		private bool _lastHitGroovy = false;
-
+		
 		private void GroovyHit(On.Explore_Movement.orig_NotesEffectsMethod orig, Explore_Movement self,
 			GameObject hittedenemy, Vector3 impactpoint,
 			Explore_Movement.Attack_HUD_Objects typeofattack, bool recieverright)
@@ -108,6 +104,12 @@ namespace ExampleMod2
 				// play the xp adding jingle.
 				Modding.Helpers.AddXP(damage);
 				
+				// Since we are stopping the original function responsible for drawing numbers, we will need to draw our own
+				// We can do this here
+				PlayerTrackingFunctions.MakeExpNumbersModded(damage.ToString());
+				PlayerExperienceTracker.Instance._CompareEXP = PlayerExperienceTracker.Instance.LevelEXP;
+				
+				
 
 				return damage;
 			}
@@ -139,8 +141,12 @@ namespace ExampleMod2
 				damage = 1;
 			}
 
-			// The modding API gives us a quick and easy way to add experience that also draws the XP numbers for us!
+			// The modding API gives us a quick and easy way to add experience!
 			Modding.Helpers.AddXP(damage);
+			// Since we are stopping the original function responsible for drawing numbers, we will need to draw our own
+			PlayerTrackingFunctions.MakeExpNumbersModded(damage.ToString());
+			PlayerExperienceTracker.Instance._CompareEXP = PlayerExperienceTracker.Instance.LevelEXP;
+
 
 			// If they got a groovy hit, set this variable to false so we don't double count their groove.
 			_lastHitGroovy = false;
