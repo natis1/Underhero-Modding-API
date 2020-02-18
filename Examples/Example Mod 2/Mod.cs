@@ -36,7 +36,7 @@ namespace ExampleMod2
 			// Modding.Logger.Log is a function that lets us print messages to a log file.
 			// This log file is located in Mod Logs, a folder in your game install location
 			// This can be helpful for finding less mothy bugs (the bad kind)
-			Modding.Logger.Log("Example mod 2 loaded. This mod makes the game much easier");
+			Modding.Logger.Log("Example mod 2 loaded. This mod makes groovin more fun");
 		}
 
 		private void OnlyRunOutsideCombat(On.PlayerExperienceTracker.orig_LevelControlFunction orig, PlayerExperienceTracker self)
