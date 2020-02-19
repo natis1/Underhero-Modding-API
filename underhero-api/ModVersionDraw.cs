@@ -36,7 +36,6 @@ namespace Modding
             {
                 style = new GUIStyle(GUI.skin.label);
             }
-
             Color backgroundColor = GUI.backgroundColor;
             Color contentColor = GUI.contentColor;
             Color color = GUI.color;

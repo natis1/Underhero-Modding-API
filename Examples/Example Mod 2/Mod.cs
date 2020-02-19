@@ -20,7 +20,7 @@ namespace ExampleMod2
 			
 			
 			// This is a special kind of event, called a generated hook. These are made by monomod hookgen
-			// a generated hook will, instead of running the main game's code when a function is called
+			// a generated hook will, instead of running the main game's code when a method is called
 			// run your code. Within your code you are capable of running the base
 			// game's code after it is done. We will be using a hook to track when the player got a groovy hit.
 			//
@@ -33,7 +33,7 @@ namespace ExampleMod2
 			// every time they get a hit
 			On.PlayerExperienceTracker.LevelControlFunction += OnlyRunOutsideCombat;
 			
-			// Modding.Logger.Log is a function that lets us print messages to a log file.
+			// Modding.Logger.Log is a method that lets us print messages to a log file.
 			// This log file is located in Mod Logs, a folder in your game install location
 			// This can be helpful for finding less mothy bugs (the bad kind)
 			Modding.Logger.Log("Example mod 2 loaded. This mod makes groovin more fun");
@@ -59,11 +59,11 @@ namespace ExampleMod2
 			GameObject hittedenemy, Vector3 impactpoint,
 			Explore_Movement.Attack_HUD_Objects typeofattack, bool recieverright)
 		{
-			// This function is only called if the player got a groovy hit so it being called means
+			// This method is only called if the player got a groovy hit so it being called means
 			// that the hit they got was groovy
 			_lastHitGroovy = true;
 			
-			// We can run the original function by passing it all of the arguments given to us in this hook
+			// We can run the original method by passing it all of the arguments given to us in this hook
 			orig(self, hittedenemy, impactpoint, typeofattack, recieverright);
 		}
 
@@ -74,7 +74,7 @@ namespace ExampleMod2
 		// when groovy attacking (and less otherwise)
 		private int InstanceOnEnemyDamage(int damage)
 		{
-			// This function only provides us with the raw damage that we dealt, however
+			// This method only provides us with the raw damage that we dealt, however
 			// we have access to all of the singleton game classes.
 			// These are provided to us through the modding api through a standard format: Class.Instance
 			
@@ -99,12 +99,12 @@ namespace ExampleMod2
 			// modding better for everyone!
 			if (!Explore_Movement.Instance._UseBeat)
 			{
-				// Modding.Helpers are useful functions that can be called to make your modding easier without the need
+				// Modding.Helpers are useful methods that can be called to make your modding easier without the need
 				// for hooks. One nifty example is AddXP, which adds experience and draws the numbers. It WILL NOT
 				// play the xp adding jingle.
 				Modding.Helpers.AddXP(damage);
 				
-				// Since we are stopping the original function responsible for drawing numbers, we will need to draw our own
+				// Since we are stopping the original method responsible for drawing numbers, we will need to draw our own
 				// We can do this here
 				PlayerTrackingFunctions.MakeExpNumbersModded(damage.ToString());
 				PlayerExperienceTracker.Instance._CompareEXP = PlayerExperienceTracker.Instance.LevelEXP;
@@ -143,7 +143,7 @@ namespace ExampleMod2
 
 			// The modding API gives us a quick and easy way to add experience!
 			Modding.Helpers.AddXP(damage);
-			// Since we are stopping the original function responsible for drawing numbers, we will need to draw our own
+			// Since we are stopping the original method responsible for drawing numbers, we will need to draw our own
 			PlayerTrackingFunctions.MakeExpNumbersModded(damage.ToString());
 			PlayerExperienceTracker.Instance._CompareEXP = PlayerExperienceTracker.Instance.LevelEXP;
 
