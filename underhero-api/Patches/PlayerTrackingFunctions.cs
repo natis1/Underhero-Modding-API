@@ -12,15 +12,15 @@ namespace Modding.Patches
             
         }
 
-        public static void MakeExpNumbersModded(GameObject BaseObjt, string Stringer)
+        public static void MakeExpNumbersModded(GameObject BaseObjt, uint Stringer)
         {
             NumberersSpawnerScr component = GameObject.FindWithTag("Item Database").GetComponent<NumberersSpawnerScr>();
-            component.SpawnNumberersM(BaseObjt, Stringer, component.ExperienceColor, NumberersSpawnerScr.AdditActs.Exp);
+            component.SpawnNumberersM(BaseObjt, Stringer.ToString(), component.ExperienceColor, NumberersSpawnerScr.AdditActs.Exp);
         }
 
-        public static void MakeExpNumbersModded(string drawText)
+        public static void MakeExpNumbersModded(uint numbers)
         {
-            MakeExpNumbersModded(GameObject.FindGameObjectWithTag("Player"), drawText);
+            MakeExpNumbersModded(GameObject.FindGameObjectWithTag("Player"), numbers);
         }
     }
 }

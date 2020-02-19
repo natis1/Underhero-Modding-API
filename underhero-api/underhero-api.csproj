@@ -340,6 +340,7 @@
     <Compile Include="Patches\BossHealthPointsScript.cs" />
     <Compile Include="Patches\EnemyHealthPointsScript.cs" />
     <Compile Include="Patches\Explore_Movement.cs" />
+    <Compile Include="Patches\NumberersSpawnerScr.cs" />
     <Compile Include="Patches\PauseMenuScript.cs" />
     <Compile Include="Patches\InitMod.cs" />
     <Compile Include="Patches\PlayerExperienceTracker.cs" />
