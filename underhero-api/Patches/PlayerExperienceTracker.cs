@@ -43,8 +43,11 @@ namespace Modding.Patches
 
             if (LevelEXP != CompareEXP)
             {
-                PlayerTrackingFunctions2.MakeExpNumbersModded(GameObject.FindGameObjectWithTag("Player"),
-                    (LevelEXP - CompareEXP).ToString());
+                if (LevelEXP - CompareEXP >= 0)
+                {
+                    PlayerTrackingFunctions2.MakeExpNumbersModded(GameObject.FindGameObjectWithTag("Player"),
+                        (uint) (LevelEXP - CompareEXP));
+                }
             }
 
             orig_LevelControlFunction();

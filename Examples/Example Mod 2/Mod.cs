@@ -109,8 +109,6 @@ namespace ExampleMod2
 				PlayerTrackingFunctions.MakeExpNumbersModded(damage.ToString());
 				PlayerExperienceTracker.Instance._CompareEXP = PlayerExperienceTracker.Instance.LevelEXP;
 				
-				
-
 				return damage;
 			}
 
