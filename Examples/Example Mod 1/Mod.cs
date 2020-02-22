@@ -7,7 +7,7 @@ namespace ExampleMod1
 	{
 		// Use this method to start the mod. this code is run right when the mod is being
 		// loaded and it allows you to set things up (eg add methods to all the events and hooks you intend to use)
-		public override void Init()
+		public override void Initialize()
 		{
 			// We can set the mod name here, this tells other mods, and the api, what we are called
 			this._modName = "Example Mod 1";
