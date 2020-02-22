@@ -10,7 +10,7 @@ namespace Modding
         protected string _modName;
         protected string _modVersion;
 
-        public abstract void Init();
+        public virtual void Initialize() { }
 
         public virtual string GetModName()
         {

@@ -93,7 +93,7 @@ namespace Modding
                 Logger.LogDebug($"[API] Attempting to initialize mod \"{name}\"");
                 try
                 {
-                    mod.Init();
+                    mod.Initialize();
                     Logger.Log($"[API] Mod \"{name}\" initialized");
                     ModText += "\n" + mod.GetModName() + " - Version: " + mod.GetVersion();
                 }
