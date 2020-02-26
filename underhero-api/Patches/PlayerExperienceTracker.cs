@@ -8,12 +8,15 @@ namespace Modding.Patches
     {
         [MonoModIgnore]
         private int CompareEXP;
-
+        
         public int _CompareEXP
         {
             get { return CompareEXP; }
             set { CompareEXP = value; }
         }
+
+
+        private int trueCompareXP;
         
         
         private static PlayerExperienceTracker _instance;
@@ -36,21 +39,22 @@ namespace Modding.Patches
         // ReSharper disable once UnusedMember.Local Used Implicitly
         private void LevelControlFunction()
         {
+            trueCompareXP = CompareEXP;
             if (CompareEXP != this.LevelEXP)
             {
                 LevelEXP = CompareEXP + ModHooks.Instance.OnGainXP(LevelEXP - CompareEXP);
             }
 
-            if (LevelEXP != CompareEXP)
+            orig_LevelControlFunction();
+            
+            if (trueCompareXP != CompareEXP)
             {
-                if (LevelEXP - CompareEXP >= 0)
+                if (CompareEXP - trueCompareXP > 0)
                 {
                     PlayerTrackingFunctions2.MakeExpNumbersModded(GameObject.FindGameObjectWithTag("Player"),
                         (uint) (LevelEXP - CompareEXP));
                 }
             }
-
-            orig_LevelControlFunction();
         }
     }
 }
