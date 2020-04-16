@@ -455,7 +455,7 @@
       mkdir -p ../../../Output/
       mono ../../../ILRepack/ILRepack.exe ../../../MonoMod/Mono.Cecil.dll ../../../MonoMod/MonoMod.RuntimeDetour.dll ../../../MonoMod/MonoMod.Utils.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MMHOOK_Assembly-CSharp.dll /out:../../../Output/Assembly-CSharp.dll
       rm ../../../Vanilla/Assembly-CSharp.mm.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MMHOOK_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll.mdb
-      cp ../../../Output/Assembly-CSharp.dll "/storage/eli/SteamLibrary/steamapps/common/Underhero/Underhero_Data//Managed/Assembly-CSharp.dll"
+      #cp ../../../Output/Assembly-CSharp.dll "/storage/eli/SteamLibrary/steamapps/common/Underhero/Underhero_Data//Managed/Assembly-CSharp.dll"
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="$(OS) == WINDOWS_NT">
