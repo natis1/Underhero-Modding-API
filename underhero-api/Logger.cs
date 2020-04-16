@@ -18,7 +18,6 @@ namespace Modding
             {
                 Directory.CreateDirectory(LOG_FOLDER);
             }
-
             string dateTime = DateTime.UtcNow.ToString("MM dd yyyy (HH mm ss)", CultureInfo.InvariantCulture);
             FileStream stream = new FileStream($"{LOG_FOLDER}{Path.DirectorySeparatorChar}{dateTime}.txt", FileMode.Create, FileAccess.Write);
             writer = new StreamWriter(stream, Encoding.UTF8);
