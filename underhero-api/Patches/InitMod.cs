@@ -16,14 +16,6 @@ namespace Modding.Patches
             if (!loadedMods)
             {
                 Logger.Log("[API] - Main menu loading");
-                GameObject go = new GameObject("textstoretmpobj");
-                var v = go.AddComponent<TextStorage>();
-                v.DeserializeDataButWeArentUnityEngine();
-                v.OnAfterDeserialize();
-                Object.DontDestroyOnLoad(go);
-                Modding.Logger.Log("Testing invalid string read: " + TextStorage.Instance.GetString("invalid"));
-                ItemDatabase.LivingDatabase.CreateDatabaseM();
-                
                 ModLoader.LoadMods();
                 loadedMods = true;
             }

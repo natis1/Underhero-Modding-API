@@ -53,9 +53,6 @@
     <Reference Include="Mono.Cecil.Rocks, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e">
       <HintPath>..\MonoMod\Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
-      <HintPath>..\Vanilla\Mono.Security.dll</HintPath>
-    </Reference>
     <Reference Include="MonoMod, Version=20.2.1.1, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\MonoMod\MonoMod.exe</HintPath>
     </Reference>
@@ -350,80 +347,6 @@
     <Compile Include="Patches\PlayerExperienceTracker.cs" />
     <Compile Include="Patches\PlayerHeatlhScript.cs" />
     <Compile Include="Patches\PlayerTrackingFunctions.cs" />
-    <Compile Include="Patches\Staging\AngryMobManager.cs" />
-    <Compile Include="Patches\Staging\ArenaCageManager.cs" />
-    <Compile Include="Patches\Staging\ArenaFirstScript.cs" />
-    <Compile Include="Patches\Staging\BachaqueroManagerScr.cs" />
-    <Compile Include="Patches\Staging\BoosFirstEncounterDialog.cs" />
-    <Compile Include="Patches\Staging\BroBlowieManagerScr.cs" />
-    <Compile Include="Patches\Staging\ChilliNpcScr.cs" />
-    <Compile Include="Patches\Staging\DemoProgScr.cs" />
-    <Compile Include="Patches\Staging\DialogScript.cs" />
-    <Compile Include="Patches\Staging\DrinksBlowieScript.cs" />
-    <Compile Include="Patches\Staging\EndsHallwayIntroManagerScr.cs" />
-    <Compile Include="Patches\Staging\EvilStoreManagerScript.cs" />
-    <Compile Include="Patches\Staging\FactoryBigDoorCutsceneScr.cs" />
-    <Compile Include="Patches\Staging\FactoryFirstDoorCutsceneManager.cs" />
-    <Compile Include="Patches\Staging\FactoryLightsFailScr.cs" />
-    <Compile Include="Patches\Staging\FifthTutorialManagerScr.cs" />
-    <Compile Include="Patches\Staging\FirstTutorialManagerScr.cs" />
-    <Compile Include="Patches\Staging\FloodedTreeTalkPromptScr.cs" />
-    <Compile Include="Patches\Staging\FourthTutorialManagerScr.cs" />
-    <Compile Include="Patches\Staging\GraveyardRaceManagerScr.cs" />
-    <Compile Include="Patches\Staging\GuiCharacterElements3.cs" />
-    <Compile Include="Patches\Staging\HandyMirrorCutSceneManager.cs" />
-    <Compile Include="Patches\Staging\HeroesDropManagerScr.cs" />
-    <Compile Include="Patches\Staging\IceStoneCutsceneManagerScr.cs" />
-    <Compile Include="Patches\Staging\ItemDatabase.cs" />
-    <Compile Include="Patches\Staging\ItormonHelperScr.cs" />
-    <Compile Include="Patches\Staging\KitchenDrinksMixScript.cs" />
-    <Compile Include="Patches\Staging\LaggedSceneLoaderScr.cs" />
-    <Compile Include="Patches\Staging\LosTerryblesBossScr.cs" />
-    <Compile Include="Patches\Staging\MainLabFirstSceneManager.cs" />
-    <Compile Include="Patches\Staging\MainLabSecondSceneManager.cs" />
-    <Compile Include="Patches\Staging\MainMenuScript.cs" />
-    <Compile Include="Patches\Staging\MementoDialogsFabScr.cs" />
-    <Compile Include="Patches\Staging\MrStitchesFightManagerScr.cs" />
-    <Compile Include="Patches\Staging\NeddleRoOmIntroManager.cs" />
-    <Compile Include="Patches\Staging\NightCutscenemanagerScr.cs" />
-    <Compile Include="Patches\Staging\NightFightManagerScr.cs" />
-    <Compile Include="Patches\Staging\NpcConversationScript.cs" />
-    <Compile Include="Patches\Staging\PlayerCardScript.cs" />
-    <Compile Include="Patches\Staging\PlayerDialogHolder.cs" />
-    <Compile Include="Patches\Staging\PlayerDialogSwitcher.cs" />
-    <Compile Include="Patches\Staging\PlayerJournalManagerScr.cs" />
-    <Compile Include="Patches\Staging\PuzzleFightManagerScr.cs" />
-    <Compile Include="Patches\Staging\QuizzManagerScr.cs" />
-    <Compile Include="Patches\Staging\RandomGossipScript.cs" />
-    <Compile Include="Patches\Staging\SalsaMinigameDialogScr.cs" />
-    <Compile Include="Patches\Staging\SalserissimoManagerScr.cs" />
-    <Compile Include="Patches\Staging\SalseroFinalSceneManager.cs" />
-    <Compile Include="Patches\Staging\SalseroPuzzlemanScr.cs" />
-    <Compile Include="Patches\Staging\SaveAlbumPerTapeManagerScr.cs" />
-    <Compile Include="Patches\Staging\SecondTutorialManagerScr.cs" />
-    <Compile Include="Patches\Staging\ShieldIntroManagerScr.cs" />
-    <Compile Include="Patches\Staging\ShieldRaceManagerScr.cs" />
-    <Compile Include="Patches\Staging\ShieldSceneGangCutsceneManagerScr.cs" />
-    <Compile Include="Patches\Staging\ShieldSceneIntroCutsceneManagerScr.cs" />
-    <Compile Include="Patches\Staging\SideChilliNpcSCr.cs" />
-    <Compile Include="Patches\Staging\SixthTutorialManagerScr.cs" />
-    <Compile Include="Patches\Staging\SlingSceneCutsceneManagerScr.cs" />
-    <Compile Include="Patches\Staging\StitchesFinalFightManager.cs" />
-    <Compile Include="Patches\Staging\StitchesRoomManagerScr.cs" />
-    <Compile Include="Patches\Staging\StoreBoughtUpgradeScr.cs" />
-    <Compile Include="Patches\Staging\StoryIceCompManager.cs" />
-    <Compile Include="Patches\Staging\TBurFightManager.cs" />
-    <Compile Include="Patches\Staging\TextStorage.cs" />
-    <Compile Include="Patches\Staging\TheChattersBossScr.cs" />
-    <Compile Include="Patches\Staging\TheEndsFightManagerScr.cs" />
-    <Compile Include="Patches\Staging\TheGlitchedTransitionScene.cs" />
-    <Compile Include="Patches\Staging\ThirdTutorialManagerScr.cs" />
-    <Compile Include="Patches\Staging\TreeHubEndCutsceneManager.cs" />
-    <Compile Include="Patches\Staging\TreeHubSceneManagerScr.cs" />
-    <Compile Include="Patches\Staging\TreeSwitchesEventManagerScr.cs" />
-    <Compile Include="Patches\Staging\VolcanoBillboardCutsceneScr.cs" />
-    <Compile Include="Patches\Staging\VonGregFightManager.cs" />
-    <Compile Include="Patches\Staging\YanijoNpcScr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <!--
@@ -454,8 +377,8 @@
       mono ../../../MonoMod/MonoMod.exe ../../../Vanilla/Assembly-CSharp.dll
       mkdir -p ../../../Output/
       mono ../../../ILRepack/ILRepack.exe ../../../MonoMod/Mono.Cecil.dll ../../../MonoMod/MonoMod.RuntimeDetour.dll ../../../MonoMod/MonoMod.Utils.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MMHOOK_Assembly-CSharp.dll /out:../../../Output/Assembly-CSharp.dll
-      rm ../../../Vanilla/Assembly-CSharp.mm.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MMHOOK_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll.mdb
-      #cp ../../../Output/Assembly-CSharp.dll "/storage/eli/SteamLibrary/steamapps/common/Underhero/Underhero_Data//Managed/Assembly-CSharp.dll"
+      rm -f ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll ../../../Vanilla/MMHOOK_Assembly-CSharp.dll ../../../Vanilla/MONOMODDED_Assembly-CSharp.dll.mdb
+      #cp ../../../Output/Assembly-CSharp.dll "/storage/eli/SteamLibrary/steamapps/common/Underhero/Underhero_Data/Managed/Assembly-CSharp.dll"
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="$(OS) == WINDOWS_NT">
